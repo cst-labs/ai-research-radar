@@ -1,0 +1,67 @@
+site_name: AI Research Radar
+site_description: Static tracker for AI papers, models, benchmarks, frameworks, and product releases.
+site_url: https://cst-labs.github.io/ai-research-radar/
+repo_url: https://github.com/cst-labs/ai-research-radar
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+# BEGIN GENERATED NAV
+nav:
+  - Home: index.md
+  - Weekly Digests:
+      - 2024 Week 25: weekly/2024-week-25.md
+      - 2024 Week 17: weekly/2024-week-17.md
+      - 2024 Week 16: weekly/2024-week-16.md
+      - 2023 Week 41: weekly/2023-week-41.md
+      - 2023 Week 20: weekly/2023-week-20.md
+      - 2023 Week 14: weekly/2023-week-14.md
+      - 2022 Week 50: weekly/2022-week-50.md
+      - 2020 Week 21: weekly/2020-week-21.md
+      - 2017 Week 24: weekly/2017-week-24.md
+  - Papers:
+      - "Tau-bench - A Benchmark for Tool-Agent-User Interaction in Real-World Domains": papers/tau-bench.md
+      - "From Local to Global - A Graph RAG Approach to Query-Focused Summarization": papers/graph-rag.md
+      - "Meta Llama 3 Release": papers/llama-3-release.md
+      - "SWE-bench - Can Language Models Resolve Real-World GitHub Issues?": papers/swe-bench.md
+      - "Mistral 7B": papers/mistral-7b.md
+      - "Towards Expert-Level Medical Question Answering with Large Language Models": papers/med-palm-2.md
+      - "Segment Anything": papers/segment-anything.md
+      - "Constitutional AI - Harmlessness from AI Feedback": papers/constitutional-ai.md
+      - "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks": papers/retrieval-augmented-generation.md
+      - "Attention Is All You Need": papers/attention-is-all-you-need.md
+  - Topics:
+      - Agents: topics/agents.md
+      - LLM Reasoning: topics/llm-reasoning.md
+      - Evals: topics/evals.md
+      - Alignment Safety: topics/alignment-safety.md
+      - Medical AI: topics/medical-ai.md
+      - Multimodal: topics/multimodal.md
+      - Vision: topics/vision.md
+      - RAG: topics/rag.md
+      - Code Agents: topics/code-agents.md
+      - Inference: topics/inference.md
+      - Model Architecture: topics/model-architecture.md
+      - AI Infra: topics/ai-infra.md
+      - Open Source Models: topics/open-source-models.md
+      - Product Release: topics/product-release.md
+# END GENERATED NAV
