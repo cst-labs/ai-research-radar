@@ -34,9 +34,10 @@ papers:
       - Researcher One
     date: 2026-06-22
     type: paper
+    primary_topic: agent-evals
     topics:
       - agents
-      - evals
+      - agent-evals
     summary: Short summary of the work.
     takeaway: One-line explanation of why it matters.
     status: unread
@@ -55,6 +56,31 @@ Supported `status` values:
 - `unread`
 - `reviewed`
 
+`primary_topic` controls where the paper is grouped in weekly digests. It must also appear in `topics`.
+
+Current topic slugs:
+
+- `agents`
+- `agent-memory`
+- `agent-evals`
+- `agent-systems`
+- `agent-security`
+- `multi-agent-systems`
+- `llm-reasoning`
+- `world-models`
+- `behavior-forecasting`
+- `self-improvement`
+- `data-quality`
+- `reinforcement-learning`
+- `game-theory`
+- `evals`
+- `alignment-safety`
+- `privacy`
+- `model-architecture`
+- `ai-infra`
+- `open-source-models`
+- `product-release`
+
 ## Generate Pages
 
 ```bash
@@ -68,6 +94,8 @@ The generator creates:
 - Weekly digest pages in `docs/weekly/`
 - MkDocs navigation in `mkdocs.yml`
 - Homepage sections for the latest weekly digest, recent papers, and top topics
+
+Weekly digests are generated from the `date` field. The script groups entries by ISO calendar week and writes pages such as `docs/weekly/2026-week-26.md`. Publishing happens when the generated files are committed and pushed to `main`, which triggers the GitHub Pages workflow.
 
 ## Build
 

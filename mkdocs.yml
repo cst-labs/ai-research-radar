@@ -29,37 +29,44 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Weekly Digests:
-      - 2024 Week 25: weekly/2024-week-25.md
-      - 2024 Week 17: weekly/2024-week-17.md
-      - 2024 Week 16: weekly/2024-week-16.md
-      - 2023 Week 41: weekly/2023-week-41.md
-      - 2023 Week 20: weekly/2023-week-20.md
-      - 2023 Week 14: weekly/2023-week-14.md
-      - 2022 Week 50: weekly/2022-week-50.md
-      - 2020 Week 21: weekly/2020-week-21.md
-      - 2017 Week 24: weekly/2017-week-24.md
+      - 2026 Week 26: weekly/2026-week-26.md
+      - 2026 Week 24: weekly/2026-week-24.md
+      - 2026 Week 23: weekly/2026-week-23.md
+      - 2026 Week 22: weekly/2026-week-22.md
+      - 2026 Week 21: weekly/2026-week-21.md
   - Papers:
-      - "Tau-bench - A Benchmark for Tool-Agent-User Interaction in Real-World Domains": papers/tau-bench.md
-      - "From Local to Global - A Graph RAG Approach to Query-Focused Summarization": papers/graph-rag.md
-      - "Meta Llama 3 Release": papers/llama-3-release.md
-      - "SWE-bench - Can Language Models Resolve Real-World GitHub Issues?": papers/swe-bench.md
-      - "Mistral 7B": papers/mistral-7b.md
-      - "Towards Expert-Level Medical Question Answering with Large Language Models": papers/med-palm-2.md
-      - "Segment Anything": papers/segment-anything.md
-      - "Constitutional AI - Harmlessness from AI Feedback": papers/constitutional-ai.md
-      - "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks": papers/retrieval-augmented-generation.md
-      - "Attention Is All You Need": papers/attention-is-all-you-need.md
+      - "AtomMem: Building Simple and Effective Memory System for LLM Agents via Atomic Facts": papers/atomic-facts-memory-llm-agents.md
+      - "Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose": papers/compositional-skill-routing.md
+      - "Building Social World Models with Large Language Models": papers/social-world-models-llms.md
+      - "Forecasting Future Behavior as a Learning Task": papers/forecasting-future-behavior.md
+      - "Self-Harness: Harnesses That Improve Themselves": papers/self-harness.md
+      - "Trajectory-Refined Distillation: Enhancing Agents by Learning from Past Experience": papers/trajectory-refined-distillation.md
+      - "SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Running AI Agents": papers/subtlememory.md
+      - "Minimax-Optimal Policy Regret in Partially Observable Markov Games": papers/minimax-policy-regret-pomg.md
+      - "Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence": papers/self-revising-discovery-systems.md
+      - "Self Improving AI with Harness & Weight Updates": papers/self-improving-ai-harness-weight-updates.md
+      - "Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents": papers/agentic-clear.md
+      - "From Model Scaling to System Scaling: Scaling the Harness in Agentic AI": papers/scaling-the-harness-agentic-ai.md
+      - "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema": papers/audit-llm-agent-benchmarks.md
+      - "A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models": papers/bitter-lesson-data-filtering.md
+      - "An Empirical Study of Privacy Leakage Chains via Prompt Injection in Black-Box Chatbot Environments": papers/privacy-leakage-chains-prompt-injection.md
   - Topics:
       - Agents: topics/agents.md
+      - Agent Memory: topics/agent-memory.md
+      - Agent Evals: topics/agent-evals.md
+      - Agent Systems: topics/agent-systems.md
+      - Agent Security: topics/agent-security.md
+      - Multi Agent Systems: topics/multi-agent-systems.md
       - LLM Reasoning: topics/llm-reasoning.md
+      - World Models: topics/world-models.md
+      - Behavior Forecasting: topics/behavior-forecasting.md
+      - Self Improvement: topics/self-improvement.md
+      - Data Quality: topics/data-quality.md
+      - Reinforcement Learning: topics/reinforcement-learning.md
+      - Game Theory: topics/game-theory.md
       - Evals: topics/evals.md
       - Alignment Safety: topics/alignment-safety.md
-      - Medical AI: topics/medical-ai.md
-      - Multimodal: topics/multimodal.md
-      - Vision: topics/vision.md
-      - RAG: topics/rag.md
-      - Code Agents: topics/code-agents.md
-      - Inference: topics/inference.md
+      - Privacy: topics/privacy.md
       - Model Architecture: topics/model-architecture.md
       - AI Infra: topics/ai-infra.md
       - Open Source Models: topics/open-source-models.md

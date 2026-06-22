@@ -1,14 +1,14 @@
 ---
-title: Model Architecture
+title: Data Quality
 ---
 
-# Model Architecture
+# Data Quality
 
-Architecture, scaling behavior, and structural choices for foundation models and their training pipelines.
+Training data filtering, data mixture design, and empirical results about what data helps at scale.
 
 ## Why This Matters
 
-Architecture remains a baseline lens for interpreting improvements outside the agent harness.
+Data choices shape model capability, especially when compute, scale, and scarcity interact.
 
 ## Latest Entries
 
@@ -22,5 +22,5 @@ Architecture remains a baseline lens for interpreting improvements outside the a
 
 ## Related Topics
 
-- [Data Quality](../topics/data-quality.md)
+- [Model Architecture](../topics/model-architecture.md)
 - [LLM Reasoning](../topics/llm-reasoning.md)

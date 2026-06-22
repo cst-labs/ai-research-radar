@@ -4,8 +4,23 @@ title: Product Release
 
 # Product Release
 
-1 tracked entry for this topic.
+Major AI product releases, platform updates, and commercially deployed capabilities.
 
-## Entries
+## Why This Matters
 
-- [Meta Llama 3 Release](../papers/llama-3-release.md) - 2024-04-18 - Open-weight frontier-adjacent models accelerated competition in deployment and fine-tuning.
+Product releases show which research ideas are crossing into user-facing systems.
+
+## Latest Entries
+
+No entries yet.
+
+0 tracked entries for this topic.
+
+## All Entries
+
+No entries yet.
+
+## Related Topics
+
+- [AI Infra](../topics/ai-infra.md)
+- [Agents](../topics/agents.md)

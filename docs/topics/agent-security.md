@@ -1,14 +1,14 @@
 ---
-title: Alignment Safety
+title: Agent Security
 ---
 
-# Alignment Safety
+# Agent Security
 
-Alignment, safety, oversight, governance, and risk-reduction methods for AI systems.
+Prompt injection, tool-mediated attack paths, exfiltration, sandboxing, and security failures in agent deployments.
 
 ## Why This Matters
 
-Safety concerns become sharper as models gain autonomy, tool access, and long-horizon execution.
+Agents connect language models to tools and external content, creating attack surfaces that ordinary chatbot safety does not cover.
 
 ## Latest Entries
 
@@ -22,6 +22,6 @@ Safety concerns become sharper as models gain autonomy, tool access, and long-ho
 
 ## Related Topics
 
-- [Agent Security](../topics/agent-security.md)
 - [Privacy](../topics/privacy.md)
-- [Evals](../topics/evals.md)
+- [Alignment Safety](../topics/alignment-safety.md)
+- [Agents](../topics/agents.md)

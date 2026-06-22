@@ -4,11 +4,28 @@ title: LLM Reasoning
 
 # LLM Reasoning
 
-4 tracked entries for this topic.
+Reasoning behavior, trajectory quality, decomposition, planning, and post-training methods for language models.
 
-## Entries
+## Why This Matters
 
-- [Tau-bench - A Benchmark for Tool-Agent-User Interaction in Real-World Domains](../papers/tau-bench.md) - 2024-06-17 - Durable agent evaluation needs interactive environments with state, tools, and user behavior.
-- [From Local to Global - A Graph RAG Approach to Query-Focused Summarization](../papers/graph-rag.md) - 2024-04-24 - Structured retrieval can improve synthesis when plain chunk search misses cross-document patterns.
-- [Towards Expert-Level Medical Question Answering with Large Language Models](../papers/med-palm-2.md) - 2023-05-16 - Medical AI needs domain-specific evaluation beyond general language benchmarks.
-- [Attention Is All You Need](../papers/attention-is-all-you-need.md) - 2017-06-12 - Self-attention became the foundation for modern large language models.
+Reasoning is a cross-cutting capability behind agent planning, evaluation, distillation, and behavior forecasting.
+
+## Latest Entries
+
+- [Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose](../papers/compositional-skill-routing.md) - 2026-06-22 - Skill routing treats agent capability as a compositional systems problem rather than a single prompt or model call.
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
+- [Trajectory-Refined Distillation: Enhancing Agents by Learning from Past Experience](../papers/trajectory-refined-distillation.md) - 2026-06-09 - Agent traces are becoming reusable training data for improving future behavior.
+
+3 tracked entries for this topic.
+
+## All Entries
+
+- [Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose](../papers/compositional-skill-routing.md) - 2026-06-22 - Skill routing treats agent capability as a compositional systems problem rather than a single prompt or model call.
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
+- [Trajectory-Refined Distillation: Enhancing Agents by Learning from Past Experience](../papers/trajectory-refined-distillation.md) - 2026-06-09 - Agent traces are becoming reusable training data for improving future behavior.
+
+## Related Topics
+
+- [Agents](../topics/agents.md)
+- [Self Improvement](../topics/self-improvement.md)
+- [Behavior Forecasting](../topics/behavior-forecasting.md)

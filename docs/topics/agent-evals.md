@@ -1,14 +1,14 @@
 ---
-title: Evals
+title: Agent Evals
 ---
 
-# Evals
+# Agent Evals
 
-General evaluation methods, benchmarks, measurement schemas, and benchmark reliability work.
+Benchmarks, audits, scoring schemas, and observability methods for evaluating LLM agents and their harnesses.
 
 ## Why This Matters
 
-Evaluation provides the evidence layer for deciding which systems actually improve.
+Agent performance depends on environment, scaffold, tools, cost, and trace behavior, so model-only scores are not enough.
 
 ## Latest Entries
 
@@ -26,5 +26,6 @@ Evaluation provides the evidence layer for deciding which systems actually impro
 
 ## Related Topics
 
-- [Agent Evals](../topics/agent-evals.md)
-- [Alignment Safety](../topics/alignment-safety.md)
+- [Evals](../topics/evals.md)
+- [Agent Systems](../topics/agent-systems.md)
+- [Agent Memory](../topics/agent-memory.md)

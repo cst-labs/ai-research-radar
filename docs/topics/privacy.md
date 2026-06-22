@@ -1,14 +1,14 @@
 ---
-title: Alignment Safety
+title: Privacy
 ---
 
-# Alignment Safety
+# Privacy
 
-Alignment, safety, oversight, governance, and risk-reduction methods for AI systems.
+Privacy leakage, data exfiltration, personal-data handling, and privacy-preserving deployment concerns.
 
 ## Why This Matters
 
-Safety concerns become sharper as models gain autonomy, tool access, and long-horizon execution.
+Agents that browse, retrieve, and call tools can accidentally move sensitive data across boundaries.
 
 ## Latest Entries
 
@@ -23,5 +23,4 @@ Safety concerns become sharper as models gain autonomy, tool access, and long-ho
 ## Related Topics
 
 - [Agent Security](../topics/agent-security.md)
-- [Privacy](../topics/privacy.md)
-- [Evals](../topics/evals.md)
+- [Alignment Safety](../topics/alignment-safety.md)
