@@ -20,9 +20,14 @@ papers:
     topics:
       - agents
       - agent-memory
-    summary: Introduces AtomMem, a memory system that converts interactions into compact atomic facts and retrieves them through a lightweight memory controller.
-    takeaway: Agent memory may become more reliable when stored as small, explicit facts rather than long unstructured transcripts.
-    status: unread
+    summary: |
+      AtomMem addresses a core limitation of long-running LLM agents: useful information accumulates across sessions, but raw dialogue logs are noisy, redundant, and expensive to retrieve from. The paper proposes turning interactions into "atomic facts," then organizing those facts into event memories, temporal profile memories, and an associative memory graph. This gives the agent a more value-dense memory substrate than unstructured chat history while preserving enough structure to recover episodic context and changing user attributes.
+
+      The empirical focus is the LoCoMo benchmark, where AtomMem is evaluated across reasoning tasks that require long-term personalized recall. The reported results suggest that high-quality memory representation matters at least as much as retrieval sophistication: even a simplified flat variant performs strongly, supporting the paper's claim that clean fact construction is a powerful foundation for agent memory. Important caveats are that several stages depend on the underlying LLM's generation quality, the current system is text-only, and further work is needed to optimize token efficiency and extend the approach to multimodal memories.
+    takeaway: |
+      The paper's main contribution is to treat agent memory as a representation problem before it is a retrieval problem. By converting interactions into compact atomic facts and then structuring them into events, profiles, and associations, AtomMem offers a concrete recipe for memory systems that are cheaper, cleaner, and more stable than storing long transcripts.
+
+      Its significance for AI Research Radar is that it points toward a practical design principle for persistent agents: memory quality should be engineered explicitly, not left as an emergent property of long-context prompting or vector search over raw logs.
 
   - id: minimax-policy-regret-pomg
     title: Minimax-Optimal Policy Regret in Partially Observable Markov Games
@@ -38,9 +43,14 @@ papers:
     topics:
       - reinforcement-learning
       - game-theory
-    summary: Studies policy regret in partially observable Markov games and provides minimax-optimal guarantees under strategic uncertainty.
-    takeaway: Theoretical regret bounds remain relevant for agent settings where opponents, hidden state, and partial observability matter.
-    status: unread
+    summary: |
+      This theoretical paper studies sequential decision-making in partially observable Markov games, where a learner acts under hidden state while facing a strategic opponent whose behavior can adapt to the learner's policy. Standard regret notions are not sufficient in this setting because the opponent's response may depend on the policy being evaluated. The paper therefore focuses on policy regret and analyzes how a learner can reason about latent dynamics and adversarial adaptation from partial observations.
+
+      The main technical result is an epoch-based optimistic maximum-likelihood algorithm with near-square-root dependence on time for fixed problem parameters. The guarantee depends explicitly on horizon, adversary memory, confidence radius, and the aggregate Eluder dimension of the observable-operator class. The paper also proves a matching lower bound up to problem-dependent and logarithmic factors, and extends the framework to horizon-adaptive guarantees and adversaries with fading memory. The contribution is mostly theoretical, so its practical significance is indirect: it clarifies what is learnable in strategic partially observed environments rather than proposing an immediate agent implementation.
+    takeaway: |
+      The paper contributes a minimax-style foundation for learning under partial observability and adaptive opposition. For agentic AI, it is useful because many deployed agents will interact with users, markets, institutions, or other agents that adapt to their behavior rather than remaining static benchmark environments.
+
+      The significance is that robust agent evaluation and control may need regret notions that account for policy-dependent opponent responses, not just average task success in fixed environments.
 
   - id: compositional-skill-routing
     title: "Compositional Skill Routing for LLM Agents: Decompose, Retrieve, and Compose"
@@ -57,9 +67,14 @@ papers:
       - agents
       - agent-systems
       - llm-reasoning
-    summary: Proposes a routing approach where LLM agents decompose tasks, retrieve relevant skills, and compose them to solve complex requests.
-    takeaway: Skill routing treats agent capability as a compositional systems problem rather than a single prompt or model call.
-    status: unread
+    summary: |
+      This paper formalizes compositional skill routing for LLM agents: given a complex user query and a large library of reusable skills or tool specifications, the agent must decompose the request into atomic subtasks, retrieve an appropriate skill for each subtask, and compose an executable plan. The proposed SKILLWEAVER framework combines an LLM decomposer, a bi-encoder skill retriever with FAISS indexing, and a dependency-aware planning stage. The evaluation uses COMPSKILLBENCH, a benchmark of 300 compositional queries over 2,209 real MCP server skills across 24 categories.
+
+      The most important empirical finding is that decomposition quality is the bottleneck. Standard LLM decomposition has weak step-level category recall, so the paper introduces Iterative Skill-Aware Decomposition, a retrieval-augmented feedback loop that aligns decomposition with the skills actually available. This improves decomposition accuracy substantially in the reported experiments and reduces context-window consumption by more than 99 percent compared with naively loading large tool libraries. The limitations are clear: the benchmark queries are partly synthetic, evaluation is mainly category-level retrieval rather than exact skill execution, and the full compose stage is not yet evaluated end to end with real compatibility annotations and recovery mechanisms.
+    takeaway: |
+      The contribution is a concrete formulation of tool use as a compositional routing problem. Instead of assuming an agent can select one tool or stuff every tool into context, the paper shows why decomposition, retrieval, and planning need to be engineered together.
+
+      Its significance is strongest for MCP-style ecosystems: as tool libraries grow, agent capability will depend on routing systems that can identify the right subset of skills and preserve task granularity without exhausting the context window.
 
   - id: agentic-clear
     title: "Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents"
@@ -75,9 +90,14 @@ papers:
       - agents
       - agent-evals
       - evals
-    summary: Presents an automated multi-level evaluation framework for LLM agents, focusing on richer assessment across agent behavior and execution traces.
-    takeaway: Agent evaluation needs layered evidence, not just final-answer correctness.
-    status: unread
+    summary: |
+      Agentic CLEAR is an evaluation framework designed to sit above the observability layer and turn execution traces into structured textual feedback. It evaluates agent behavior at three granularities: system-level insights, trace-level judgments, and node-level feedback. The motivation is that agent failures are often distributed across planning, tool use, retrieval, and environment interaction, so static hand-authored taxonomies or final-answer metrics are not enough to explain what went wrong.
+
+      The framework uses judge models to generate dynamic criteria and insights from trace data, then links those insights back to specific parts of the execution. Experiments span four benchmarks, seven agentic configurations, and tens of thousands of LLM calls. The paper reports alignment with human-annotated errors and predictive signal for task success. Its practical contribution is not just another benchmark score, but a way to produce operational feedback that developers can use to iterate on agent systems. The limitations are the usual but important ones for judge-based evaluation: reliability depends on judge quality, coverage across domains remains an open problem, and future work is needed to include system execution details alongside reasoning and planning traces.
+    takeaway: |
+      The key contribution is a multi-level evaluation pipeline that turns agent traces into actionable diagnostic insight. It moves agent evaluation from "did the task pass?" toward "which recurring behaviors explain success or failure?"
+
+      This matters because scalable agent development needs feedback loops that can compare configurations, identify failure modes, and support debugging without requiring humans to inspect every trajectory manually.
 
   - id: privacy-leakage-chains-prompt-injection
     title: An Empirical Study of Privacy Leakage Chains via Prompt Injection in Black-Box Chatbot Environments
@@ -98,9 +118,14 @@ papers:
       - agent-security
       - alignment-safety
       - privacy
-    summary: Empirically studies how prompt injection can create privacy leakage chains in black-box chatbot environments.
-    takeaway: Privacy failures can emerge as chained interactions, so defenses must cover the whole conversation and tool context.
-    status: unread
+    summary: |
+      This paper studies privacy leakage chains in black-box chatbot agents that combine natural-language reasoning with external tools such as web browsing. The threat model is intentionally practical: the attacker does not know the model weights, system prompt, or implementation details, but controls external content that the agent may retrieve. The paper analyzes how indirect prompt injection can hijack the user's intended task and redirect the agent toward an attacker-defined objective.
+
+      A central contribution is the "exemplification" prompt-injection technique, which reframes the user prompt and benign beginning of the retrieved page as examples before appending the malicious objective. The paper compares exemplification with fake completion and reports higher attack success in the single-injection experiment. It then demonstrates a proof-of-concept data-exfiltration chain using fictitious personal information and URL query parameters in a controlled setting. The work is important because it treats privacy leakage as a chain spanning external content, instruction steering, jailbreak-like behavior, and tool invocation, rather than as a single unsafe response. Its scope is still limited to controlled experiments and a particular class of black-box chatbot/tool behavior.
+    takeaway: |
+      The contribution is an empirical attack-chain analysis showing how indirect prompt injection can become privacy leakage when agents are allowed to browse and invoke tools. The paper is less about a single jailbreak trick and more about how individually familiar weaknesses compose into a practical exfiltration path.
+
+      Its significance is that agent security needs end-to-end controls: instruction-data separation, tool-use policies, URL and network restrictions, and monitoring of multi-step behavior all matter.
 
   - id: scaling-the-harness-agentic-ai
     title: "From Model Scaling to System Scaling: Scaling the Harness in Agentic AI"
@@ -117,9 +142,14 @@ papers:
       - agents
       - agent-systems
       - ai-infra
-    summary: Argues that agentic AI progress increasingly depends on scaling the harness around models, including tools, environment design, and execution scaffolds.
-    takeaway: The system wrapped around the model is becoming a primary scaling axis for agent performance.
-    status: unread
+    summary: |
+      This position/framework paper argues that the next bottleneck in agentic AI is system scaling rather than only model scaling. It defines the "harness" as the structured execution layer around the model: memory, context construction, skill routing, orchestration, verification, governance, and interaction with tools or subagents. The paper's central claim is that long-horizon agent behavior emerges from the interaction between the foundation model and this harness, so model-centric evaluation misses much of what determines practical capability.
+
+      The paper organizes the research agenda around context governance, trustworthy memory, dynamic skill routing, orchestration, and verification/governance. It uses Claude Code, OpenClaw, and CheetahClaws as concrete points of comparison to make harness-level design choices visible. Its value is conceptual and architectural: it provides vocabulary for treating agent scaffolds as first-class objects of design and evaluation. The limitation is that the paper is primarily a framework and research agenda rather than a controlled empirical comparison; the claims should be read as a call to measure harness components more systematically.
+    takeaway: |
+      The paper's contribution is the argument that agent progress should be evaluated at the system level, not just at the model level. It makes the harness an explicit object of scaling, optimization, and governance.
+
+      This is significant for the radar because many recent agent papers, including memory, routing, evaluation, and self-improvement work, can be seen as different pieces of harness scaling.
 
   - id: subtlememory
     title: "SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Running AI Agents"
@@ -138,9 +168,14 @@ papers:
       - agent-memory
       - agent-evals
       - evals
-    summary: Introduces a benchmark for testing whether long-running agents can distinguish subtle relational memory details over time.
-    takeaway: Memory benchmarks are moving beyond recall toward fine-grained relational discrimination.
-    status: unread
+    summary: |
+      SubtleMemory is a benchmark for evaluating whether long-running agents can preserve and use fine-grained relations among memories. The paper argues that persistent assistants do not only need to recall isolated facts; they must understand when memories are complementary, nuanced variants, or direct contradictions. To test this, the benchmark constructs relation-controlled latent semantic artifacts, embeds variants into realistic user-agent histories, and asks later queries that require recovering distributed relational structure.
+
+      The benchmark contains 1,522 evaluation instances over 10 long histories, grounded in 1,090 relation-controlled memory-variant sets. The evaluation covers standalone memory systems, Claw-style agents with native memory, and Claw-style agents with plugin memory modules. The reported finding is that current systems remain weak at fine-grained relational discrimination, and diagnostic protocols separate preservation, retrieval, and downstream reasoning failure modes. The limitations are that it is text-only, uses a controlled relation taxonomy, and relies on selected answer-generation and judging models; future work needs multimodal, multilingual, domain-specific, and more human-validated settings.
+    takeaway: |
+      The contribution is a benchmark that makes memory quality more precise: the question is not merely whether an agent remembers something, but whether it remembers how related memories interact.
+
+      Its significance is that realistic agent memory will involve conflicts, refinements, and context-dependent relations. Systems that pass simple recall tests may still fail when asked to reason over subtly different or contradictory memories.
 
   - id: audit-llm-agent-benchmarks
     title: "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema"
@@ -157,9 +192,14 @@ papers:
     topics:
       - agent-evals
       - evals
-    summary: Audits what agent benchmark papers disclose about their setup and proposes an open scoring schema for benchmark transparency.
-    takeaway: Agent benchmarks need disclosure standards so results can be interpreted, reproduced, and compared.
-    status: unread
+    summary: |
+      This pilot audit examines what LLM agent benchmark papers disclose about how their evaluations were actually run. The motivation is a practical reproducibility problem: different papers may report different numbers for the same nominal model and benchmark, but the published artifact often does not reveal whether the discrepancy comes from scaffold differences, inference settings, subsets, evaluator versions, or cost constraints. The authors design a small audit schema covering benchmark identity, harness specification, inference settings, cost reporting, and failure breakdown.
+
+      Applying the schema to twelve benchmark papers, the paper reports lower disclosure scores for agent benchmarks than for classical static benchmarks. The largest gaps appear in inference cost and harness specification; none of the audited agent benchmark papers fully disclose a content-addressed container image of the evaluation environment. The paper does not claim that disclosure proves correctness. Instead, it argues that without disclosure, readers cannot interpret or compare results reliably. The contribution is a practical scoring schema and codebook for benchmark transparency rather than a new agent benchmark.
+    takeaway: |
+      The contribution is to make benchmark reporting itself measurable. By scoring what papers disclose about harnesses, inference settings, costs, and failures, the work gives the community a lightweight reproducibility checklist.
+
+      This matters because agent benchmark results are especially sensitive to scaffolds and environment details. Without disclosure standards, leaderboard numbers can look comparable while hiding materially different evaluation conditions.
 
   - id: self-harness
     title: "Self-Harness: Harnesses That Improve Themselves"
@@ -178,9 +218,14 @@ papers:
       - agent-systems
       - self-improvement
       - ai-infra
-    summary: Proposes harnesses that can improve their own components, shifting optimization from static prompts toward adaptive execution systems.
-    takeaway: Self-improving harnesses make the agent scaffold itself part of the learning loop.
-    status: unread
+    summary: |
+      Self-Harness asks whether a fixed language model can improve the harness that governs its own agent behavior. The proposed loop has three stages: weakness mining from execution traces, harness proposal that turns failure patterns into bounded modifications, and proposal validation through regression testing. The model and evaluator stay fixed, so improvements can be attributed to changes in the harness rather than a stronger underlying model.
+
+      The experiments instantiate the method on Terminal-Bench-2.0 with a minimal initial harness and three different base models. Reported held-out pass rates improve for all three, and qualitative analysis suggests the accepted changes are model-specific executable harness edits rather than generic instruction stuffing. The paper is careful about limits: it studies bounded harness edits under fixed benchmarks, not open-ended recursive self-improvement. Accepted edits may overfit benchmark-specific failures, verifier quality matters, and higher-stakes settings would need stricter acceptance gates than pass-rate non-regression.
+    takeaway: |
+      The contribution is a disciplined self-improvement loop for harnesses: propose changes from trace evidence, validate them empirically, and promote only non-regressive edits.
+
+      Its significance is that it treats the agent scaffold as something that can evolve through recorded, testable, and reversible changes, moving beyond manual prompt/harness engineering while avoiding unconstrained self-modification.
 
   - id: social-world-models-llms
     title: Building Social World Models with Large Language Models
@@ -195,9 +240,14 @@ papers:
     topics:
       - agents
       - world-models
-    summary: Explores using large language models to build social world models that represent social dynamics and likely outcomes.
-    takeaway: Social prediction may become a major testbed for agent world modeling.
-    status: unread
+    summary: |
+      This paper introduces Social World Models, LLM-based models that predict how collective beliefs evolve in response to events. Instead of relying on explicit human annotations linking events to belief shifts, the method mines temporal patterns in social data and trains state-transition functions over social belief states. The evaluation benchmark, SWM-Bench, is derived from real-world prediction markets such as Kalshi and Polymarket and includes more than 12,000 data points across domains including politics, finance, and cryptocurrency.
+
+      The reported results show strong performance on Kalshi and competitive performance on Polymarket, with the added benefit that the model can provide interpretable signals about social belief dynamics. The paper's significance is that it reframes world modeling for social systems: rather than modeling physical dynamics, the target is how populations update beliefs after events. The impact statement also flags serious risks: such models could be used defensively to detect inorganic belief shifts, but also maliciously to optimize disinformation or manipulate public opinion; prediction-market feedback loops are another concern.
+    takeaway: |
+      The contribution is a concrete benchmark and training recipe for modeling social belief transitions with LLMs. It broadens "world models" from physical or simulated environments to social and institutional dynamics.
+
+      This is important for agentic AI because agents operating in real societies will need to reason about how beliefs, markets, and groups respond to events, but the same capability creates manipulation and governance risks.
 
   - id: forecasting-future-behavior
     title: Forecasting Future Behavior as a Learning Task
@@ -216,9 +266,14 @@ papers:
       - behavior-forecasting
       - llm-reasoning
       - world-models
-    summary: Frames forecasting future behavior as a learning task and studies how systems can predict what agents or models will do next.
-    takeaway: Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
-    status: unread
+    summary: |
+      This paper argues that trust in large reasoning models often requires forecasting future behavior, but natural-language explanations and naive readings of reasoning traces are unreliable. Instead of trying to interpret a trajectory directly, the authors formulate behavior forecasting as a supervised learning task. A Behavior Forecaster observes a single reasoning trajectory and predicts behavioral properties of the target model, with labels generated automatically by querying the model itself.
+
+      The paper instantiates the idea on two tasks: predicting whether the model will repeat its answer on reruns, and predicting how removing parts of the input changes the answer. Across three reasoning datasets, trained Behavior Forecasters outperform strong frontier models used as naive readers of the same trajectories, at much lower inference cost. The results indicate that reasoning trajectories contain predictive information that is not obvious from surface reading. Important constraints are that the method requires task-specific supervision, end-to-end fine-tuning, and often initialization from the target model family.
+    takeaway: |
+      The contribution is to separate behavior forecasting from explanation. Rather than asking a model or human to read a chain of thought and infer what it means, the paper trains a forecaster to learn predictive patterns directly from trajectories.
+
+      This matters for agent evaluation because many safety and reliability questions are predictive: will the system repeat an answer, change under perturbation, or behave consistently under reruns? Forecasting may be a scalable complement to interpretability.
 
   - id: trajectory-refined-distillation
     title: "Trajectory-Refined Distillation: Enhancing Agents by Learning from Past Experience"
@@ -236,9 +291,14 @@ papers:
       - agents
       - llm-reasoning
       - self-improvement
-    summary: Uses past agent trajectories to refine distillation, helping agents learn from previous experience rather than isolated examples.
-    takeaway: Agent traces are becoming reusable training data for improving future behavior.
-    status: unread
+    summary: |
+      Trajectory-Refined Distillation studies a failure mode in on-policy distillation for reasoning models. In standard on-policy distillation, the student generates rollouts and receives dense per-token teacher supervision along those rollouts. The paper identifies "prefix failure": early problematic prefixes can cause teacher supervision to become fragmented or bimodal, and token-level truncation or reweighting does not fix the structural problem.
+
+      The proposed TRD method performs trajectory-level correction. A teacher-guided refinement revises the student's rollout while keeping it close to the on-policy support, and the refined trajectory is used for distillation. The method can also be applied to on-policy self-distillation with privileged information. Across several competition-math benchmarks and Qwen model scales, TRD improves single-attempt accuracy and reasoning coverage over baselines. The main limitations are the extra sampling budget needed to construct refined trajectories and dependence on a teacher that can guide refinement without pushing trajectories too far from the student's distribution.
+    takeaway: |
+      The contribution is a trajectory-level fix for a structural weakness in on-policy distillation. Instead of only changing token losses, TRD repairs the path the student is learning from.
+
+      Its significance is that agent and reasoning traces are becoming training objects in their own right. Improving models from experience may require editing or refining whole trajectories, not just scoring final answers.
 
   - id: bitter-lesson-data-filtering
     title: "A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models"
@@ -262,9 +322,14 @@ papers:
     topics:
       - data-quality
       - model-architecture
-    summary: Shows that synthetic data from smaller models can still improve efficient language models, challenging simple assumptions about filtering by model size.
-    takeaway: Data filtering should be judged empirically; smaller-model synthetic data can still carry useful training signal.
-    status: unread
+    summary: |
+      This paper challenges the assumption that aggressive quality filtering is always essential for language-model pretraining. It studies data filtering in a high-compute, data-scarce regime and finds that sufficiently trained large-parameter models can tolerate, and sometimes benefit from, data that common filters would label low quality or distracting. The striking claim is that with enough compute, the best filter may be no filter.
+
+      The paper uses scaling studies around pretraining data selection and injection, including Common Crawl-style data and filtered alternatives. The discussion is careful about the boundaries of the claim: filtering can still matter when compute is limited, the experiments focus on dense transformer pretraining without curricula or post-training, and questions remain about duplicates, AI-generated content, factuality, and other architectures such as MoEs. The practical message is not that filtering is obsolete, but that the value of filtering depends strongly on compute scale and the role low-quality data may play as signal or regularizer.
+    takeaway: |
+      The contribution is an empirical scaling argument against treating data filtering as a universal good. In some high-compute regimes, broader data may outperform aggressively filtered subsets.
+
+      This matters because agent and model builders often inherit assumptions about "quality" data without checking the scaling regime. The paper argues for measuring the tradeoff directly rather than filtering by intuition alone.
 
   - id: self-improving-ai-harness-weight-updates
     title: Self Improving AI with Harness & Weight Updates
@@ -282,9 +347,14 @@ papers:
       - agent-systems
       - ai-infra
       - self-improvement
-    summary: Studies self-improving AI systems that update both their harness and weights, connecting scaffold optimization with model-level adaptation.
-    takeaway: Future self-improvement work may need to jointly reason about harness updates and weight updates.
-    status: unread
+    summary: |
+      This paper proposes SIA, a self-improving loop in which a Feedback-Agent updates both the harness and the weights of a task-specific agent. It explicitly connects two research lines that are often separate: harness-update systems, where prompts/tools/retry logic/search procedures change while weights stay fixed, and test-time training systems, where model weights adapt while the harness stays fixed. The paper argues that both levers matter because harnesses shape how the model searches and acts, while weight updates build domain-specific intuition that scaffolding alone cannot provide.
+
+      The evaluation spans three different domains: Chinese legal charge classification, GPU kernel optimization, and single-cell RNA denoising. The reported combined harness-and-weight system outperforms scaffold iteration alone and prior state of the art in all three settings. The limitations section highlights a coupled Goodhart problem: harness search and RL weight updates optimize against the same verifier, and each changes the distribution seen by the other. This can create strong verifier performance while remaining fragile under perturbations to either component. Future work includes learning the meta-policy that chooses between harness and weight updates and using more interleaved update schedules.
+    takeaway: |
+      The contribution is to treat self-improvement as a two-lever process: change the scaffold and change the weights. This is more ambitious than harness-only self-improvement and more agentic than a fixed training pipeline.
+
+      Its significance is that future self-improving systems may need to reason about how scaffolds and weights co-evolve. The paper also usefully surfaces the stability risks of optimizing both against the same verifier.
 
   - id: self-revising-discovery-systems
     title: "Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence"
@@ -305,9 +375,14 @@ papers:
       - agents
       - self-improvement
       - world-models
-    summary: Develops a categorical framework for self-revising discovery systems in science, positioning agentic AI as an iterative discovery process.
-    takeaway: Scientific agents may need formal structures for revising their own discovery processes over time.
-    status: unread
+    summary: |
+      This paper develops a category-theoretic account of agentic scientific discovery. Its core idea is that discovery is not merely generating an answer inside a fixed representation, but revising the representational regime in which evidence, artifacts, operations, and verifiers are typed. In a fixed regime, the system updates typed states and provenance; discovery occurs when a verified transition moves the system into a new regime while preserving and transporting old artifacts, then identifying residual content that cannot be explained by transport alone.
+
+      The paper instantiates this abstract framework in two materials-science systems. Builder/Breaker revises a protein-mechanics world model under a Minimum Description Length gate, while CategoryScienceClaw represents typed skills, artifacts, open needs, workflow mutation, gates, stress tests, and discourse as a proof-carrying knowledge-computation graph. The work is mathematically heavy and more framework-building than benchmark-driven, but it provides a rigorous language for distinguishing retrieval, search, and discovery. Its relevance to agentic AI is strongest where agents are expected to revise not only hypotheses but also their schemas, tools, and verification regimes.
+    takeaway: |
+      The contribution is a formal model of self-revising discovery: discovery is a verified transition between representational regimes, not just a better answer in the same frame.
+
+      This matters for AI-for-science agents because genuinely useful discovery systems may need to change how they type artifacts, define operations, and validate claims over time.
 
   - id: boiling-the-frog-agentic-safety
     title: "Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety"
@@ -335,6 +410,11 @@ papers:
       - agent-evals
       - evals
       - alignment-safety
-    summary: Introduces a multi-turn benchmark for tool-using AI agents in corporate and office settings, testing whether incremental attacks can lead to unsafe workspace states.
-    takeaway: Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.
-    status: unread
+    summary: |
+      Boiling the Frog is a benchmark for agentic safety that shifts attention from unsafe text outputs to unsafe state changes caused by tool-using agents. The scenarios are set in corporate and office-like workspaces. Each chain begins with benign workspace edits and later introduces a risk-bearing request, testing whether models can resist incremental attacks that gradually move a persistent workspace toward an unsafe artifact state.
+
+      The benchmark uses a three-level operational risk taxonomy grounded in Boiling-the-Frog risks, EU AI Act high-risk contexts, and the Code of Practice on General-Purpose AI. Across a nine-model panel, the paper reports a strict aggregate attack success rate of 44.4 percent, with large differences across models and especially high success in loss-of-control scenarios. Its methodological contribution is artifact-state validation: the benchmark scores whether the final workspace state is unsafe, not merely whether the model said something unsafe. Limitations include one finalized run per chain, a selective model panel, and a sandboxed office environment that does not yet cover browsers, databases, email, identity systems, CI pipelines, cloud dashboards, or human approval workflows.
+    takeaway: |
+      The contribution is a stateful multi-turn safety benchmark for agents. It captures a failure mode where every individual request may look tolerable, but the sequence gradually produces an unsafe persistent state.
+
+      This is significant because agent safety cannot be evaluated only by classifying responses. For tool-using agents, the safety-relevant object is often the artifact, file, workflow, or environment state the agent leaves behind.

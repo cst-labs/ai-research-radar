@@ -12,13 +12,13 @@ Forecasting behavior offers a practical alternative when explanations are incomp
 
 ## Latest Entries
 
-- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - The contribution is to separate behavior forecasting from explanation. 
 
 1 tracked entry for this topic.
 
 ## All Entries
 
-- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - The contribution is to separate behavior forecasting from explanation. 
 
 ## Related Topics
 

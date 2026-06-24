@@ -12,13 +12,13 @@ Architecture remains a baseline lens for interpreting improvements outside the a
 
 ## Latest Entries
 
-- [A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models](../papers/bitter-lesson-data-filtering.md) - 2026-05-24 - Data filtering should be judged empirically; smaller-model synthetic data can still carry useful training signal.
+- [A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models](../papers/bitter-lesson-data-filtering.md) - 2026-05-24 - The contribution is an empirical scaling argument against treating data filtering as a universal good. 
 
 1 tracked entry for this topic.
 
 ## All Entries
 
-- [A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models](../papers/bitter-lesson-data-filtering.md) - 2026-05-24 - Data filtering should be judged empirically; smaller-model synthetic data can still carry useful training signal.
+- [A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models](../papers/bitter-lesson-data-filtering.md) - 2026-05-24 - The contribution is an empirical scaling argument against treating data filtering as a universal good. 
 
 ## Related Topics
 

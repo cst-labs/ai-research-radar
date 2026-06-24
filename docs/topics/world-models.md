@@ -12,17 +12,17 @@ World models help agents move from reactive task execution toward prediction, si
 
 ## Latest Entries
 
-- [Building Social World Models with Large Language Models](../papers/social-world-models-llms.md) - 2026-06-12 - Social prediction may become a major testbed for agent world modeling.
-- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
-- [Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence](../papers/self-revising-discovery-systems.md) - 2026-06-01 - Scientific agents may need formal structures for revising their own discovery processes over time.
+- [Building Social World Models with Large Language Models](../papers/social-world-models-llms.md) - 2026-06-12 - The contribution is a concrete benchmark and training recipe for modeling social belief transitions with LLMs. 
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - The contribution is to separate behavior forecasting from explanation. 
+- [Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence](../papers/self-revising-discovery-systems.md) - 2026-06-01 - The contribution is a formal model of self-revising discovery: discovery is a verified transition between representational regimes, not just a better answer in the same frame. 
 
 3 tracked entries for this topic.
 
 ## All Entries
 
-- [Building Social World Models with Large Language Models](../papers/social-world-models-llms.md) - 2026-06-12 - Social prediction may become a major testbed for agent world modeling.
-- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - Behavior forecasting gives evaluators a predictive lens on systems that are difficult to fully interpret.
-- [Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence](../papers/self-revising-discovery-systems.md) - 2026-06-01 - Scientific agents may need formal structures for revising their own discovery processes over time.
+- [Building Social World Models with Large Language Models](../papers/social-world-models-llms.md) - 2026-06-12 - The contribution is a concrete benchmark and training recipe for modeling social belief transitions with LLMs. 
+- [Forecasting Future Behavior as a Learning Task](../papers/forecasting-future-behavior.md) - 2026-06-12 - The contribution is to separate behavior forecasting from explanation. 
+- [Self-Revising Discovery Systems for Science: A Categorical Framework for Agentic Artificial Intelligence](../papers/self-revising-discovery-systems.md) - 2026-06-01 - The contribution is a formal model of self-revising discovery: discovery is a verified transition between representational regimes, not just a better answer in the same frame. 
 
 ## Related Topics
 

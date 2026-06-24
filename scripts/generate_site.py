@@ -179,7 +179,7 @@ def load_papers() -> list[dict[str, Any]]:
 
 
 def validate_paper(paper: dict[str, Any], seen: set[str]) -> None:
-    required = {"id", "title", "url", "authors", "date", "type", "topics", "summary", "takeaway", "status"}
+    required = {"id", "title", "url", "authors", "date", "type", "topics", "summary", "takeaway"}
     missing = required - set(paper)
     if missing:
         raise ValueError(f"Paper entry is missing fields {sorted(missing)}: {paper!r}")
@@ -190,8 +190,6 @@ def validate_paper(paper: dict[str, Any], seen: set[str]) -> None:
 
     if paper["type"] not in {"paper", "framework", "benchmark", "model", "product-release"}:
         raise ValueError(f"Invalid type for {paper['id']}: {paper['type']}")
-    if paper["status"] not in {"unread", "reviewed"}:
-        raise ValueError(f"Invalid status for {paper['id']}: {paper['status']}")
     if not isinstance(paper["authors"], list) or not paper["authors"]:
         raise ValueError(f"authors must be a non-empty list for {paper['id']}")
     if not isinstance(paper["topics"], list) or not paper["topics"]:
@@ -233,10 +231,9 @@ def generate_paper_pages(papers: list[dict[str, Any]]) -> None:
             f"**Authors:** {', '.join(paper['authors'])}",
             f"**Date:** {paper['date'].isoformat()}",
             f"**Type:** `{paper['type']}`",
-            f"**Status:** `{paper['status']}`",
             f"**Primary Topic:** [{titleize(paper['primary_topic'])}](../topics/{paper['primary_topic']}.md)",
             f"**Topics:** {topic_links(paper['topics'])}",
-            "## Takeaway",
+            "## Contribution and Significance",
             paper["takeaway"],
             "## Summary",
             paper["summary"],
@@ -286,7 +283,7 @@ def generate_weekly_pages(papers: list[dict[str, Any]]) -> list[dict[str, str]]:
         ]
         sections = []
         for topic, topic_papers in grouped.items():
-            sections.extend([f"### {titleize(topic)}", paper_list(topic_papers)])
+            sections.extend([f"### {titleize(topic)}", paper_digest_list(topic_papers)])
 
         body = [
             f"---\ntitle: {year} Week {week:02d}\n---",
@@ -378,9 +375,37 @@ def unique_by_id(papers: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def paper_list(papers: list[dict[str, Any]], link_prefix: str = "../papers") -> str:
     return "\n".join(
-        f"- [{paper['title']}]({link_prefix}/{paper['id']}.md) - {paper['date'].isoformat()} - {paper['takeaway']}"
+        f"- [{paper['title']}]({link_prefix}/{paper['id']}.md) - {paper['date'].isoformat()} - {first_sentence(paper['takeaway'])}"
         for paper in papers
     )
+
+
+def paper_digest_list(papers: list[dict[str, Any]]) -> str:
+    blocks = []
+    for paper in papers:
+        blocks.append(
+            "\n".join(
+                [
+                    f"#### [{paper['title']}](../papers/{paper['id']}.md)",
+                    f"**Date:** {paper['date'].isoformat()}  ",
+                    f"**Type:** `{paper['type']}`  ",
+                    f"**Topics:** {topic_links(paper['topics'])}",
+                    "",
+                    f"**Contribution and significance:** {paper['takeaway']}",
+                    "",
+                    f"**Summary:** {paper['summary']}",
+                ]
+            )
+        )
+    return "\n\n".join(blocks)
+
+
+def first_sentence(text: str) -> str:
+    normalized = " ".join(text.split())
+    match = re.search(r"(?<=[.!?])\s", normalized)
+    if not match:
+        return normalized
+    return normalized[: match.start() + 1]
 
 
 def topic_links(topics: list[str]) -> str:

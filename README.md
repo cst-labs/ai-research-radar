@@ -40,9 +40,10 @@ papers:
     topics:
       - agents
       - agent-evals
-    summary: Short summary of the work.
-    takeaway: One-line explanation of why it matters.
-    status: unread
+    summary: |
+      Longer explanation of the paper's method, evidence, results, and limitations.
+    takeaway: |
+      Editorial note on the paper's main contribution and why it matters.
 ```
 
 Supported `type` values:
@@ -52,11 +53,6 @@ Supported `type` values:
 - `benchmark`
 - `model`
 - `product-release`
-
-Supported `status` values:
-
-- `unread`
-- `reviewed`
 
 `primary_topic` controls where the paper is grouped in weekly digests. It must also appear in `topics`.
 
@@ -97,6 +93,8 @@ The generator creates:
 - MkDocs navigation in `mkdocs.yml`
 - Homepage sections for the latest weekly digest, recent papers, and top topics
 
+The generator does not call an LLM. It renders whatever editorial notes are stored in `summary` and `takeaway`. To create richer notes for new papers, read or extract the paper first, update those YAML fields, then regenerate the site.
+
 Weekly digests are generated from the `date` field. The script groups entries by ISO calendar week and writes pages such as `docs/weekly/2026-week-26.md`. Publishing happens when the generated files are committed and pushed to `main`, which triggers the GitHub Pages workflow.
 
 ## Build
@@ -108,5 +106,3 @@ mkdocs build --strict
 ## Deployment
 
 The workflow at `.github/workflows/deploy.yml` builds and deploys the site to GitHub Pages on every push to `main`.
-
-Before deploying, update `site_url` and `repo_url` in `mkdocs.yml` to match your GitHub repository.
