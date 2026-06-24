@@ -13,12 +13,14 @@ Agents connect language models to tools and external content, creating attack su
 ## Latest Entries
 
 - [An Empirical Study of Privacy Leakage Chains via Prompt Injection in Black-Box Chatbot Environments](../papers/privacy-leakage-chains-prompt-injection.md) - 2026-05-22 - Privacy failures can emerge as chained interactions, so defenses must cover the whole conversation and tool context.
+- [Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety](../papers/boiling-the-frog-agentic-safety.md) - 2026-05-22 - Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.
 
-1 tracked entry for this topic.
+2 tracked entries for this topic.
 
 ## All Entries
 
 - [An Empirical Study of Privacy Leakage Chains via Prompt Injection in Black-Box Chatbot Environments](../papers/privacy-leakage-chains-prompt-injection.md) - 2026-05-22 - Privacy failures can emerge as chained interactions, so defenses must cover the whole conversation and tool context.
+- [Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety](../papers/boiling-the-frog-agentic-safety.md) - 2026-05-22 - Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.
 
 ## Related Topics
 

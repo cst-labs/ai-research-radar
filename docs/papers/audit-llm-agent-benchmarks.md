@@ -31,3 +31,4 @@ Audits what agent benchmark papers disclose about their setup and proposes an op
 
 - [SubtleMemory: A Benchmark for Fine-Grained Relational Memory Discrimination in Long-Running AI Agents](../papers/subtlememory.md) - 2026-06-05 - Memory benchmarks are moving beyond recall toward fine-grained relational discrimination.
 - [Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents](../papers/agentic-clear.md) - 2026-05-28 - Agent evaluation needs layered evidence, not just final-answer correctness.
+- [Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety](../papers/boiling-the-frog-agentic-safety.md) - 2026-05-22 - Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.

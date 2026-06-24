@@ -30,4 +30,4 @@ Empirically studies how prompt injection can create privacy leakage chains in bl
 
 ## Related Papers
 
-No related entries yet.
+- [Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety](../papers/boiling-the-frog-agentic-safety.md) - 2026-05-22 - Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.

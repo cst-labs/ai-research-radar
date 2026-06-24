@@ -50,6 +50,7 @@ nav:
       - "What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema": papers/audit-llm-agent-benchmarks.md
       - "A Bitter Lesson for Data Filtering: Even Synthetic Data From Small Models Can Improve Efficient Language Models": papers/bitter-lesson-data-filtering.md
       - "An Empirical Study of Privacy Leakage Chains via Prompt Injection in Black-Box Chatbot Environments": papers/privacy-leakage-chains-prompt-injection.md
+      - "Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety": papers/boiling-the-frog-agentic-safety.md
   - Topics:
       - Agents: topics/agents.md
       - Agent Memory: topics/agent-memory.md

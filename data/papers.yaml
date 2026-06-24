@@ -308,3 +308,33 @@ papers:
     summary: Develops a categorical framework for self-revising discovery systems in science, positioning agentic AI as an iterative discovery process.
     takeaway: Scientific agents may need formal structures for revising their own discovery processes over time.
     status: unread
+
+  - id: boiling-the-frog-agentic-safety
+    title: "Boiling the Frog: A Multi-Turn Benchmark for Agentic Safety"
+    url: https://arxiv.org/abs/2605.22643
+    authors:
+      - Piercosma Bisconti
+      - Matteo Prandi
+      - Federico Pierucci
+      - Federico Sartore
+      - Enrico Panai
+      - Laura Caroli
+      - Yue Zhu
+      - Adam Leon Smith
+      - Luca Nannini
+      - Marcello Galisai
+      - Susanna Cifani
+      - Francesco Giarrusso
+      - Marcantonio Bracale Syrnikov
+      - Daniele Nardi
+    date: 2026-05-22
+    type: benchmark
+    primary_topic: agent-security
+    topics:
+      - agent-security
+      - agent-evals
+      - evals
+      - alignment-safety
+    summary: Introduces a multi-turn benchmark for tool-using AI agents in corporate and office settings, testing whether incremental attacks can lead to unsafe workspace states.
+    takeaway: Agentic safety evaluation needs stateful multi-turn scenarios that score what agents do, not only what they say.
+    status: unread
