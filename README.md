@@ -2,6 +2,8 @@
 
 AI Research Radar is a static GitHub Pages site for tracking and summarizing AI research papers, frameworks, benchmarks, models, and major product releases.
 
+Live site: https://cst-labs.github.io/ai-research-radar/
+
 The source of truth is `data/papers.yaml`. Generated Markdown pages live under `docs/` and are built with MkDocs Material.
 
 ## Requirements
