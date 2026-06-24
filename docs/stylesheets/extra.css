@@ -1,0 +1,19 @@
+.md-nav--primary > .md-nav__title {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link,
+.md-nav--primary .md-nav__item--section > .md-nav__link {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--md-default-fg-color);
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link {
+  margin-top: 0.45rem;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+  letter-spacing: 0;
+}
